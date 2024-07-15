@@ -28,69 +28,90 @@ generate_diff = partial(generate_diff, format=JSON)
 @fixture()
 def expected_diff_for_file1_and_file2():
     return """{
-    "common": {
-        "follow": [
-            "NodeType.ADDED",
-            false
-        ],
-        "setting1": "Value 1",
-        "setting2": [
-            "NodeType.REMOVED",
-            200
-        ],
-        "setting3": [
-            "NodeType.CHANGED",
-            [
-                true,
-                null
-            ]
-        ],
-        "setting4": [
-            "NodeType.ADDED",
-            "blah blah"
-        ],
-        "setting5": [
-            "NodeType.ADDED",
-            {
-                "key5": "value5"
-            }
-        ],
-        "setting6": {
-            "doge": {
-                "wow": [
-                    "NodeType.CHANGED",
-                    [
-                        "",
-                        "so much"
-                    ]
-                ]
-            },
-            "key": "value",
-            "ops": [
+    "common": [
+        "NodeType.NESTED",
+        {
+            "follow": [
                 "NodeType.ADDED",
-                "vops"
+                false
+            ],
+            "setting1": [
+                "NodeType.UNCHANGED",
+                "Value 1"
+            ],
+            "setting2": [
+                "NodeType.REMOVED",
+                200
+            ],
+            "setting3": [
+                "NodeType.CHANGED",
+                [
+                    true,
+                    null
+                ]
+            ],
+            "setting4": [
+                "NodeType.ADDED",
+                "blah blah"
+            ],
+            "setting5": [
+                "NodeType.ADDED",
+                {
+                    "key5": "value5"
+                }
+            ],
+            "setting6": [
+                "NodeType.NESTED",
+                {
+                    "doge": [
+                        "NodeType.NESTED",
+                        {
+                            "wow": [
+                                "NodeType.CHANGED",
+                                [
+                                    "",
+                                    "so much"
+                                ]
+                            ]
+                        }
+                    ],
+                    "key": [
+                        "NodeType.UNCHANGED",
+                        "value"
+                    ],
+                    "ops": [
+                        "NodeType.ADDED",
+                        "vops"
+                    ]
+                }
             ]
         }
-    },
-    "group1": {
-        "baz": [
-            "NodeType.CHANGED",
-            [
-                "bas",
-                "bars"
+    ],
+    "group1": [
+        "NodeType.NESTED",
+        {
+            "baz": [
+                "NodeType.CHANGED",
+                [
+                    "bas",
+                    "bars"
+                ]
+            ],
+            "foo": [
+                "NodeType.UNCHANGED",
+                "bar"
+            ],
+            "nest": [
+                "NodeType.CHANGED",
+                [
+                    {
+                        "key": "value"
+                    },
+                    "str"
+                ]
             ]
-        ],
-        "foo": "bar",
-        "nest": [
-            "NodeType.CHANGED",
-            [
-                {
-                    "key": "value"
-                },
-                "str"
-            ]
-        ]
-    },
+        }
+    ],
     "group2": [
         "NodeType.REMOVED",
         {
