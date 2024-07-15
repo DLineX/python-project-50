@@ -62,7 +62,7 @@ def expected_diff_for_file1_and_file2():
         }
         fee: 100500
     }
-}"""  # noqa: W291
+}"""
 
 
 @fixture()
@@ -92,7 +92,7 @@ def expected_diff_for_file1_and_empty():
             id: 45
         }
     }
-}"""  # noqa: W291
+}"""
 
 
 @pytest.mark.parametrize(

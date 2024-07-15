@@ -30,27 +30,27 @@ def expected_diff_for_file1_and_file2():
     return """{
     "common": {
         "follow": [
-            "DiffStatus.ADDED",
+            "NodeType.ADDED",
             false
         ],
         "setting1": "Value 1",
         "setting2": [
-            "DiffStatus.REMOVED",
+            "NodeType.REMOVED",
             200
         ],
         "setting3": [
-            "DiffStatus.CHANGED",
+            "NodeType.CHANGED",
             [
                 true,
                 null
             ]
         ],
         "setting4": [
-            "DiffStatus.ADDED",
+            "NodeType.ADDED",
             "blah blah"
         ],
         "setting5": [
-            "DiffStatus.ADDED",
+            "NodeType.ADDED",
             {
                 "key5": "value5"
             }
@@ -58,7 +58,7 @@ def expected_diff_for_file1_and_file2():
         "setting6": {
             "doge": {
                 "wow": [
-                    "DiffStatus.CHANGED",
+                    "NodeType.CHANGED",
                     [
                         "",
                         "so much"
@@ -67,14 +67,14 @@ def expected_diff_for_file1_and_file2():
             },
             "key": "value",
             "ops": [
-                "DiffStatus.ADDED",
+                "NodeType.ADDED",
                 "vops"
             ]
         }
     },
     "group1": {
         "baz": [
-            "DiffStatus.CHANGED",
+            "NodeType.CHANGED",
             [
                 "bas",
                 "bars"
@@ -82,7 +82,7 @@ def expected_diff_for_file1_and_file2():
         ],
         "foo": "bar",
         "nest": [
-            "DiffStatus.CHANGED",
+            "NodeType.CHANGED",
             [
                 {
                     "key": "value"
@@ -92,7 +92,7 @@ def expected_diff_for_file1_and_file2():
         ]
     },
     "group2": [
-        "DiffStatus.REMOVED",
+        "NodeType.REMOVED",
         {
             "abc": 12345,
             "deep": {
@@ -101,7 +101,7 @@ def expected_diff_for_file1_and_file2():
         }
     ],
     "group3": [
-        "DiffStatus.ADDED",
+        "NodeType.ADDED",
         {
             "deep": {
                 "id": {
@@ -118,7 +118,7 @@ def expected_diff_for_file1_and_file2():
 def expected_diff_for_file1_and_empty():
     return """{
     "common": [
-        "DiffStatus.REMOVED",
+        "NodeType.REMOVED",
         {
             "setting1": "Value 1",
             "setting2": 200,
@@ -132,7 +132,7 @@ def expected_diff_for_file1_and_empty():
         }
     ],
     "group1": [
-        "DiffStatus.REMOVED",
+        "NodeType.REMOVED",
         {
             "baz": "bas",
             "foo": "bar",
@@ -142,7 +142,7 @@ def expected_diff_for_file1_and_empty():
         }
     ],
     "group2": [
-        "DiffStatus.REMOVED",
+        "NodeType.REMOVED",
         {
             "abc": 12345,
             "deep": {
