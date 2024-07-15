@@ -25,6 +25,18 @@ jobs:
         run: |
           make lint
           poetry run pytest -vv tests
+      - name: Download codeclimate reporter
+        run: wget -O cc-reporter https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 && chmod +x cc-reporter
+      - name: Prepare code coverage
+        run: ./cc-reporter before-build
+      - name: Run unit tests
+        run: go test -coverprofile=c.out ./...
+      - name: Format code coverage
+        run: ./cc-reporter format-coverage c.out -t gocov -p $(basename $PWD)
+      - name: Upload code coverage
+        env:
+          CC_TEST_REPORTER_ID: ...
+        run: ./cc-reporter after-build -t gocov -p $(basename $PWD)
       - name: Test & publish code coverage
         uses: paambaati/codeclimate-action@v8.0.0
         if: github.ref_name == 'main'
