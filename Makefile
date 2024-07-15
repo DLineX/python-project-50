@@ -11,6 +11,7 @@ dependencies:
 	pip install PyYAML
 	pip install pytest
 	pip install pytest-cov
+	python3 -m pip install coverage
 
 package-install:
 	python3 -m pip install --user dist\hexlet_code-0.1.0-py3-none-any.whl
