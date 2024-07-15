@@ -1,6 +1,6 @@
 from pathlib import Path
 
-FIXTURES = Path.cwd() / 'fixtures'
+FIXTURES = Path.cwd() / 'tests' / 'fixtures'
 
 JSON1_PATH = FIXTURES / "file1.json"
 JSON2_PATH = FIXTURES / "file2.json"
