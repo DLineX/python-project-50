@@ -11,7 +11,7 @@ package-install:
 	python3 -m pip install --user dist\hexlet_code-0.1.0-py3-none-any.whl
 
 test-coverage:
-	pytest --cov=gendiff tests/
+	poetry run pytest --cov=gendiff tests/
 
 lint:
 	poetry run flake8 gendiff
