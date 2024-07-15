@@ -25,15 +25,11 @@ jobs:
         run: |
           make lint
           poetry run pytest -vv tests
-      - name: Download codeclimate reporter
-        run: wget -O cc-reporter https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 && chmod +x cc-reporter
-      - name: Prepare code coverage
-        run: ./cc-reporter before-build
       - name: Test & publish code coverage
         uses: paambaati/codeclimate-action@v5.0.0
         if: github.ref_name == 'main'
         env:
-          CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
+          CC_TEST_REPORTER_ID: ${{ secrets.068a86d259b85a84f3b5d08199f41e3ebe1318c829877cc8402cffc246bf6b39 }}
         with:
           coverageCommand: pytest --cov=gendiff tests/
           debug: true
