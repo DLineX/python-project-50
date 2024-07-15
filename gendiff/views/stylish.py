@@ -19,7 +19,8 @@ def stringify_value(value: Union[Any, Dict], depth: int) -> str:
             )
         result.append(f"{INDENT*depth}}}")
         return "\n".join(result)
-    return value if isinstance(value, str) else json.JSONEncoder().encode(value)
+    return value \
+        if isinstance(value, str) else json.JSONEncoder().encode(value)
 
 
 def stringify_node(key: str, value: Node, depth: int) -> str:
