@@ -38,7 +38,7 @@ jobs:
           CC_TEST_REPORTER_ID: ...
         run: ./cc-reporter after-build -t gocov -p $(basename $PWD)
       - name: Test & publish code coverage
-        uses: paambaati/codeclimate-action@v8.0.0
+        uses: paambaati/codeclimate-action@v5.0.0
         if: github.ref_name == 'main'
         env:
           CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
