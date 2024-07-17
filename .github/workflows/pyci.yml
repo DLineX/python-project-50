@@ -19,6 +19,7 @@ jobs:
       - name: Install dependencies
         run: |
           pip install poetry
+          make PyYAML
           make dependencies
           make install
       - name: Run linter and pytest

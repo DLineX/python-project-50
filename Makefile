@@ -7,8 +7,10 @@ build:
 publish:
 	poetry publish --dry-run
 
-dependencies:
+PyYAML:
 	pip install PyYAML
+
+dependencies:
 	pip install pytest
 	pip install pytest-cov
 	python3 -m pip install coverage
