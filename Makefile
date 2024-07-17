@@ -8,7 +8,7 @@ publish:
 	poetry publish --dry-run
 
 PyYAML:
-	pip install PyYAML
+	pip install --user PyYAML
 
 dependencies:
 	pip install pytest
