@@ -7,7 +7,7 @@ from pathlib import Path
 from typing import Union, Dict, Any
 
 
-import yaml
+from yaml import load, FullLoader
 
 
 def get_extension(path: Union[str, Path]) -> str:
@@ -16,7 +16,7 @@ def get_extension(path: Union[str, Path]) -> str:
 
 def parse(data: str, extension: str) -> Dict[str, Any]:
     if extension in ("yml", "yaml"):
-        return yaml.load(data, Loader=yaml.FullLoader) or {}
+        return load(data, Loader=FullLoader) or {}
     if extension == "json":
         return json.loads(data)
     raise RuntimeError("Unknown file format")
