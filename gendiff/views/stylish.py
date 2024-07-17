@@ -15,9 +15,10 @@ def stringify_value(value: Union[Any, Dict], depth: int) -> str:
         result = ["{"]
         for key_, value_ in sorted(value.items()):
             result.append(
-                f"{INDENT*(depth+1)}{key_}: {stringify_value(value_, depth+1)}"
+                f"{INDENT * (depth + 1)}{key_}: "
+                f"{stringify_value(value_, depth + 1)}"
             )
-        result.append(f"{INDENT*depth}}}")
+        result.append(f"{INDENT * depth}}}")
         return "\n".join(result)
     return value \
         if isinstance(value, str) else json.JSONEncoder().encode(value)
@@ -25,13 +26,13 @@ def stringify_value(value: Union[Any, Dict], depth: int) -> str:
 
 def stringify_node(key: str, value: Node, depth: int) -> str:
     if value.status == NodeType.UNCHANGED:
-        return f"{INDENT*depth}{key}: {stringify_value(value.value, depth)}"
+        return f"{INDENT * depth}{key}: {stringify_value(value.value, depth)}"
 
     elif value.status == NodeType.NESTED:
-        result = [f"{INDENT*depth}{key}: {{"]
+        result = [f"{INDENT * depth}{key}: {{"]
         for key_, value_ in sorted(value.value.items()):
             result.append(stringify_node(key_, value_, depth + 1))
-        result.append(f"{INDENT*depth}}}")
+        result.append(f"{INDENT * depth}}}")
         return "\n".join(result)
 
     elif value.status in (
@@ -46,7 +47,7 @@ def stringify_node(key: str, value: Node, depth: int) -> str:
         )
         for mark, value_ in zip(marks, values):
             result.append(
-                f"{INDENT*(depth-1)}  {mark} {key}: "
+                f"{INDENT * (depth - 1)}  {mark} {key}: "
                 f"{stringify_value(value_, depth)}"
             )
         return "\n".join(result)
