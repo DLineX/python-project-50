@@ -1,7 +1,7 @@
 import argparse
 
 
-from gendiff.gendiff import generate_diff
+from gendiff import generate_diff
 
 
 from gendiff.views import STYLISH, PLAIN, JSON

@@ -4,7 +4,7 @@ import pytest
 from pytest import fixture
 
 
-from gendiff.gendiff import generate_diff
+from gendiff import generate_diff
 
 
 from tests.fixture_paths import (

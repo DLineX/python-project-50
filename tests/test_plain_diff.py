@@ -7,7 +7,7 @@ import pytest
 from pytest import fixture
 
 
-from gendiff.gendiff import generate_diff
+from gendiff import generate_diff
 
 
 from gendiff.views import PLAIN
