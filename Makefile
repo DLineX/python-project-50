@@ -13,6 +13,7 @@ PyYAML:
 dependencies:
 	pip install pytest
 	pip install pytest-cov
+	pip install coverage
 	python3 -m pip install coverage
 
 package-install:
