@@ -30,7 +30,7 @@ jobs:
         uses: paambaati/codeclimate-action@v8.0.0
         if: github.ref_name == 'main'
         env:
-          CC_TEST_REPORTER_ID: ${{ secrets.1beea7c67613e1c943542cc19b58cc4ff0c754bebf49585c31f7629dd827ecf5 }}
+          CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
         with:
           coverageCommand: pytest --cov=gendiff tests/
           debug: true
