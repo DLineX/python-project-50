@@ -32,7 +32,7 @@ def expected_diff_for_file1_and_file2():
         }
         setting6: {
             doge: {
-              - wow:
+              - wow: 
               + wow: so much
             }
             key: value
@@ -74,7 +74,7 @@ def expected_diff_for_file1_and_empty():
         setting3: true
         setting6: {
             doge: {
-                wow:
+                wow: 
             }
             key: value
         }
