@@ -19,7 +19,7 @@ jobs:
       - name: Install dependencies
         run: |
           pip install poetry
-          poetry lock [--no-update]
+          poetry lock --no-update
           make PyYAML
           make dependencies
           make install
